@@ -59,7 +59,7 @@ def render_departures(departure):
 
 @app.route('/tours/<int:id>')  # роут тура
 def render_tours(id):
-    ids = [id]
+    ids = [id] # оборачиваем в список, т.к. функция get_datalist принимает на вход список
     return render_template('tour.html',
                            main_title=main_title,
                            departures=departures,
@@ -71,4 +71,6 @@ def render_tours(id):
                            picture=get_datalist(tours, "picture", ids)[0]
                            )
 
-app.run(debug = True)  # запустим сервер
+
+if __name__ == '__main__':
+    app.run()  # запустим сервер
